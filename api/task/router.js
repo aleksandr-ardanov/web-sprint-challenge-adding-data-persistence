@@ -2,7 +2,7 @@ const express = require('express')
 const Task = require('./model')
 const router = express.Router()
 
-router.get('/', (req,res,next) => {
+router.get('/', (req,res,next) => {     //get all tasks
     Task.getTasks()
         .then(tasks => {
             res.status(200).json(tasks)
@@ -12,7 +12,7 @@ router.get('/', (req,res,next) => {
         })
 })
 
-router.get('/:id', (req,res,next) => {
+router.get('/:id', (req,res,next) => {  //get task by id
     const {id} = req.params
     Task.getTasks(id)
         .then(tasks => {
@@ -23,7 +23,7 @@ router.get('/:id', (req,res,next) => {
         })
 })
 
-router.post('/', (req,res,next) => {
+router.post('/', (req,res,next) => {     //adds a new task
     Task.addTask(req.body)
         .then(newTask => {
             res.status(201).json(newTask)

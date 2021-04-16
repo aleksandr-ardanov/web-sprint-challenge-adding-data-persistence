@@ -1,5 +1,4 @@
-
-exports.up = function(knex) {
+exports.up = function(knex) {     // this creates needed tables
   return knex.schema
   .createTable('projects', tbl => {
     tbl.increments('project_id')
@@ -27,7 +26,7 @@ exports.up = function(knex) {
   })
 };
 
-exports.down = function(knex) {
+exports.down = function(knex) {         //this destroys tables
   return knex.schema
     .dropTableIfExists('tasks')
     .dropTableIfExists('resources')

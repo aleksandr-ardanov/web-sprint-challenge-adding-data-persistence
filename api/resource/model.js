@@ -1,7 +1,7 @@
 // build your `Resource` model here
-const db = require('../../data/dbConfig')
+const db = require('../../data/dbConfig') //database access
 
-function getResources(resource_id){
+function getResources(resource_id){    //search by id or all resources
    if(resource_id){
       return db('resources').where({resource_id}).first()
    }
@@ -10,7 +10,7 @@ function getResources(resource_id){
    }
 }
 
-async function addResource(newRes){
+async function addResource(newRes){ // add a resource
    const [resource_id] = await db('resources').insert(newRes);
    return getResources(resource_id)
 }
