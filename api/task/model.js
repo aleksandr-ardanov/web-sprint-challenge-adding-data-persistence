@@ -38,7 +38,6 @@ function getTasks(task_id){
  async function addTask(newTask){
     const [task_id] = await db('tasks').insert(newTask);
     return getTasks(task_id)
-    
  }
 
 
